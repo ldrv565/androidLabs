@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editSize"
+        android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -17,11 +17,11 @@
         android:autofillHints="@string/text"
         android:ems="10"
         android:hint="@string/edit_text"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/submit_size"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/submit_text"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="o" />
 
     <Button
@@ -33,14 +33,14 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:onClick="setText"
-        android:text="@string/button"
+        android:text="@string/edit_text"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/editText" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editSize"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -48,12 +48,12 @@
         android:layout_marginTop="16dp"
         android:autofillHints="@string/text"
         android:ems="10"
-        android:hint="@string/edit_text"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/submit_text"
+        android:hint="@string/edit_size"
+        android:inputType="numberSigned|text"
+        app:layout_constraintEnd_toStartOf="@+id/submit_size"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
         tools:targetApi="o" />
 
     <Button
@@ -65,7 +65,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:onClick="setSize"
-        android:text="@string/button"
+        android:text="@string/edit_size"
         app:layout_constraintBaseline_toBaselineOf="@+id/editSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -85,4 +85,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
