@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">lab2</string>
+    <string name="new_game">Новая игра</string>
+    <string name="help">Справка</string>
 </resources>
