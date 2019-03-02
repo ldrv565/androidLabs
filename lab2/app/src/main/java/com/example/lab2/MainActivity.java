@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,18 +12,21 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.DigitalClock;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     DigitalClock clock;
+    LinearLayout window;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        clock = (DigitalClock) findViewById(R.id.clock);
+        clock = findViewById(R.id.clock);
         registerForContextMenu(clock);
+        window = findViewById(R.id.window);
     }
 
     @Override
@@ -51,10 +55,22 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.size__small:
                 clock.setTextSize(8);
+                return true;
             case R.id.size__medium:
                 clock.setTextSize(16);
+                return true;
             case R.id.size__large:
                 clock.setTextSize(32);
+                return true;
+            case R.id.position__top_left:
+                window.setGravity(Gravity.TOP);
+                return true;
+            case R.id.position__center:
+                window.setGravity(Gravity.CENTER);
+                return true;
+            case R.id.position__bottom_right:
+                window.setHorizontalGravity(Gravity.END);
+                window.setVerticalGravity(Gravity.BOTTOM);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
