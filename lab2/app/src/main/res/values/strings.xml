@@ -2,4 +2,16 @@
     <string name="app_name">lab2</string>
     <string name="new_game">Новая игра</string>
     <string name="help">Справка</string>
+    <string name="subMenu__color">Цвет</string>
+    <string name="color__red">Красный</string>
+    <string name="color__green">Зеленый</string>
+    <string name="color__blue">Синий</string>
+    <string name="subMenu__size">Размер</string>
+    <string name="size__small">Малый</string>
+    <string name="size__medium">Средний</string>
+    <string name="size__large">Большой</string>
+    <string name="subMenu__position">Положение</string>
+    <string name="position__top_left">Верний левый угол</string>
+    <string name="position__center">Центр</string>
+    <string name="position__bottom_right">Нижний правый угол</string>
 </resources>

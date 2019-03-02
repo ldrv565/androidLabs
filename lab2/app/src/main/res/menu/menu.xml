@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/subMenu__color">
+        <menu>
+            <item android:id="@+id/color__red"
+                android:title="@string/color__red" />
+            <item android:id="@+id/color__green"
+                android:title="@string/color__green" />
+            <item android:id="@+id/color__blue"
+                android:title="@string/color__blue" />
+        </menu>
+    </item>
+    <item
+        android:title="@string/subMenu__size">
+        <menu>
+            <item android:id="@+id/size__small"
+                android:title="@string/size__small" />
+            <item android:id="@+id/size__medium"
+                android:title="@string/size__medium" />
+            <item android:id="@+id/size__large"
+                android:title="@string/size__large" />
+        </menu>
+    </item>
+    <item
+        android:title="@string/subMenu__position">
+        <menu>
+            <item android:id="@+id/position__top_left"
+                android:title="@string/position__top_left" />
+            <item android:id="@+id/position__center"
+                android:title="@string/position__center" />
+            <item android:id="@+id/position__bottom_right"
+                android:title="@string/position__bottom_right" />
+        </menu>
+    </item>
+</menu>
