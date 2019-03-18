@@ -40,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         RadioGroup radioGroupAnimation = findViewById(R.id.radioGroupAnimation);
         RadioButton radio = findViewById(radioGroupAnimation.getCheckedRadioButtonId());
-        selectedAnimationType = (String) radio.getText();
+
+        if (radio != null) {
+            selectedAnimationType = (String) radio.getText();
+        }
 
         Intent intent = new Intent(MainActivity.this, AboutActivity.class);
         intent.putExtra("color", selectedColor);
