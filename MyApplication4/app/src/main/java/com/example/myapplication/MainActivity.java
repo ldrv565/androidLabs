@@ -2,63 +2,74 @@ package com.example.myapplication;
 
         import android.content.Intent;
         import android.graphics.Color;
-        import android.graphics.PorterDuff;
-        import android.graphics.drawable.Drawable;
-        import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.support.v7.app.AppCompatActivity;
         import android.util.Log;
         import android.view.View;
-        import android.widget.EditText;
-        import android.widget.ImageButton;
-        import android.widget.RadioButton;
-        import android.widget.RadioGroup;
+        import android.view.animation.Animation;
+        import android.view.animation.AnimationUtils;
         import android.widget.TextView;
 
-        import java.util.Random;
-
 public class MainActivity extends AppCompatActivity {
-
-    private String selectedColor;
-    private String selectedAnimationType;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        setRandomColor();
-        selectedColor = null;
-        selectedAnimationType = null;
     }
 
-    public void onClickImageButton(View view) {
-        ImageButton btn = (ImageButton) view;
-        selectedColor = ((String) btn.getTag()).substring(0);
+    protected void onResume() {
+        super.onResume();
+        applyChanges();
     }
 
     public void onClick(View view) {
-
-        RadioGroup radioGroupAnimation = findViewById(R.id.radioGroupAnimation);
-        RadioButton radio = findViewById(radioGroupAnimation.getCheckedRadioButtonId());
-
-        if (radio != null) {
-            selectedAnimationType = (String) radio.getText();
-        }
-
         Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-        intent.putExtra("color", selectedColor);
-        intent.putExtra("animationType", selectedAnimationType);
         startActivity(intent);
     }
 
-    private void setRandomColor() {
-        ImageButton button = findViewById(R.id.randomButton);
+    protected void applyChanges() {
+        String selectedColor = null;
+        String selectedAnimationType = null;
 
-        Random rnd = new Random();
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        if(getIntent().getExtras() != null) {
+            selectedColor = getIntent().getExtras().getString("color");
+            selectedAnimationType = getIntent().getExtras().getString("animationType");
+        }
 
-        button.setColorFilter(color);
+        TextView infoTextView = findViewById(R.id.textViewInfo);
 
-        button.setTag("#" + Integer.toHexString(color));
+        if(selectedColor != null) {
+            infoTextView.setBackgroundColor(Color.parseColor(selectedColor));
+        } else {
+            selectedColor = "color did not selected";
+        }
+
+        if(selectedAnimationType != null) {
+            Animation anim = null;
+            switch (selectedAnimationType) {
+                // пункты меню для clock
+                case "alpha":
+                    anim = AnimationUtils.loadAnimation(this,R.anim.alpha);
+                    break;
+                case "rotate":
+                    anim = AnimationUtils.loadAnimation(this,R.anim.rotate);
+                    break;
+                case "scale":
+                    anim = AnimationUtils.loadAnimation(this,R.anim.scale);
+                    break;
+                case "translate":
+                    anim = AnimationUtils.loadAnimation(this,R.anim.translate);
+                    break;
+            }
+
+            if (anim != null) {
+                infoTextView.startAnimation(anim);
+            }
+            Log.d("Animation_type", selectedAnimationType);
+        } else {
+            selectedAnimationType = "animation did not selected";
+        }
+
+        infoTextView.setText(selectedColor + " " + selectedAnimationType);
     }
 }

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="about_text">
+        Activity — это компонент приложения,\n
+        который выдает экран,\n
+        и с которым пользователи могут взаимодействовать\n
+        для выполнения каких-либо действий.\n
+    </string>
+    <string name="about_title">Новая активность</string>
+</resources>

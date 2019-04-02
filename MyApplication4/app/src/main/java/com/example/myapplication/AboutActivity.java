@@ -3,53 +3,46 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.TextView;
+import android.widget.ImageButton;
+
+import java.util.Random;
 
 public class AboutActivity extends Activity {
+
+    private String selectedColor;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        String selectedColor = getIntent().getExtras().getString("color");
-        String selectedAnimationType = getIntent().getExtras().getString("animationType");
+        setRandomColor();
+        selectedColor = null;
+    }
 
-        TextView infoTextView =
-                (TextView)findViewById(R.id.textViewInfo);
-        infoTextView.setText(selectedColor + " " + selectedAnimationType);
+    private void setRandomColor() {
+        ImageButton button = findViewById(R.id.randomButton);
 
-        if(selectedColor != null) {
-            infoTextView.setBackgroundColor(Color.parseColor(selectedColor));
-        }
+        Random rnd = new Random();
+        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
 
-        if(selectedAnimationType != null) {
-            Animation anim = null;
-            switch (selectedAnimationType) {
-                // пункты меню для clock
-                case "alpha":
-                    anim = AnimationUtils.loadAnimation(this,R.anim.alpha);
-                    break;
-                case "rotate":
-                    anim = AnimationUtils.loadAnimation(this,R.anim.rotate);
-                    break;
-                case "scale":
-                    anim = AnimationUtils.loadAnimation(this,R.anim.scale);
-                    break;
-                case "translate":
-                    anim = AnimationUtils.loadAnimation(this,R.anim.translate);
-                    break;
-            }
-            if (anim != null) {
-                infoTextView.startAnimation(anim);
-            }
-            Log.d("Animation_type", selectedAnimationType);
-        }
+        button.setColorFilter(color);
+
+        button.setTag("#" + Integer.toHexString(color));
+    }
+
+    public void onClickImageButton(View view) {
+        ImageButton btn = (ImageButton) view;
+        selectedColor = ((String) btn.getTag()).substring(0);
+    }
+
+    public void onClick(View view) {
+
+        Intent intent = new Intent(AboutActivity.this, AnimationActivity.class);
+        intent.putExtra("color", selectedColor);
+        startActivity(intent);
     }
 }

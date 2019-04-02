@@ -19,9 +19,6 @@
         <activity android:name=".AboutActivity"
             android:label="@string/about_title">
         </activity>
-        <activity android:name=".AnimationActivity"
-            android:label="@string/anim_title">
-        </activity>
     </application>
 
 </manifest>
