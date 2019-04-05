@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity"
+        <activity android:name=".ColorActivity"
             android:label="@string/about_title">
+        </activity>
+        <activity android:name=".AnimationActivity"
+            android:label="@string/anim_title">
         </activity>
     </application>
 
