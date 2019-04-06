@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -41,8 +42,9 @@ public class ColorActivity extends Activity {
 
     public void onClick(View view) {
 
-        Intent intent = new Intent(ColorActivity.this, AnimationActivity.class);
-        intent.putExtra("color", selectedColor);
-        startActivity(intent);
+
+        Intent openlinkIntent = new Intent(Intent.ACTION_VIEW);
+        openlinkIntent.putExtra("color", selectedColor);
+        startActivity(openlinkIntent);
     }
 }

@@ -16,15 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ColorActivity"
+        <activity android:name=".AboutActivity"
             android:label="@string/about_title">
-        </activity>
-        <activity android:name=".AnimationActivity"
-            android:label="@string/anim_title">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
     </application>
 
