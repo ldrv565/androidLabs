@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Cars List</string>
+    <string-array name="fields">
+        <item>manufacturer</item>
+        <item>type</item>
+        <item>model</item>
+        <item>trunkSize</item>
+        <item>ABS</item>
+        <item>saftyPillows</item>
+        <item>fuelConsumption</item>
+    </string-array>
+    <string-array name="numeric_fields">
+        <item>trunkSize</item>
+        <item>saftyPillows</item>
+        <item>fuelConsumption</item>
+    </string-array>
+    <string-array name="string_fields">
+        <item>manufacturer</item>
+        <item>type</item>
+        <item>model</item>
+        <item>ABS</item>
+    </string-array>
+</resources>
