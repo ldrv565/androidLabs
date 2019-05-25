@@ -9,12 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.GridView
-import android.widget.TextView
 import kotlinx.android.synthetic.main.grid_item.view.*
+import kotlin.random.Random
 
 class GridActivity : AppCompatActivity() {
-
-    var data = arrayOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,21 +20,14 @@ class GridActivity : AppCompatActivity() {
 
         val grid = findViewById<GridView>(R.id.grid)
 
-
-
         val items = arrayListOf("askdj", "asdasdsadas", "casflkm", "asdasdsadas", "casflkm", "asdasdsadas", "casflkm", "asdasdsadas", "casflkm")
 
         val adapter = GridAdapter(this, items,
-            getColor(intent.getStringExtra("setBackgroundColor")),
             getColor(intent.getStringExtra("setTextColor")),
-            0)
+            getColor(intent.getStringExtra("setBackgroundColor")),
+            Random.nextInt(0, items.size))
 
         grid.adapter = adapter
-
-
-
-//        text1.setBackgroundColor(getColor(intent.getStringExtra("setBackgroundColor")))
-//        text1.setTextColor(getColor(intent.getStringExtra("setTextColor")))
 
     }
 
